@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/flipclock.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script src="./prefixfree.min.js"></script>
+    <title>Pomodoro Clock #003</title>
+</head>
+
+<body>
+    <div class="pomodoro">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <p>session length
+                    <p>
+                </div>
+                <div class="row counter">
+                    <div class="col-md-4">
+                        <button class="btn btn-default" id="sessDec">-</button>
+                    </div>
+                    <div class="col-md-2">
+                        <div id="session"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-default" id="sessInc">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <p>break length
+                    <p>
+                </div>
+                <div class="row counter">
+                    <div class="col-md-4">
+                        <button class="btn btn-default" id="breakDec">-</button>
+                    </div>
+                    <div class="col-md-2">
+                        <div id="break"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-default" id="breakInc">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="clock" class="row">
+            <div class="timer">
+                <div class="middle"></div>
+            </div>
+        </div>
+        <div class="row" id="statRow">
+            <div id="stats"></div>
+        </div>
+        <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+        <div id="pomodoro">
+            <div id="options" style="">
+                <div id="session">
+                    <svg id="incrSession" class="svg-inline--fa fa-angle-double-up fa-w-10" aria-hidden="true"
+                        data-prefix="fas" data-icon="angle-double-up" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z">
+                        </path>
+                    </svg><!-- <i id="incrSession" class="fas fa-angle-double-up"></i> -->
+                    <span class="option-title">Session</span>
+                    <input id="sessionInput" type="number" value="30" max="60" min="5">
+                    <svg id="decrSession" class="svg-inline--fa fa-angle-double-down fa-w-10" aria-hidden="true"
+                        data-prefix="fas" data-icon="angle-double-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z">
+                        </path>
+                    </svg><!-- <i id="decrSession" class="fas fa-angle-double-down"></i> -->
+                </div>
+                <div id="break">
+                    <svg id="incrBreak" class="svg-inline--fa fa-angle-double-up fa-w-10" aria-hidden="true"
+                        data-prefix="fas" data-icon="angle-double-up" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z">
+                        </path>
+                    </svg><!-- <i id="incrBreak" class="fas fa-angle-double-up"></i> -->
+                    <span class="option-title">Break</span>
+                    <input id="breakInput" type="number" value="5" max="10" min="1">
+                    <svg id="decrBreak" class="svg-inline--fa fa-angle-double-down fa-w-10" aria-hidden="true"
+                        data-prefix="fas" data-icon="angle-double-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512" data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z">
+                        </path>
+                    </svg><!-- <i id="decrBreak" class="fas fa-angle-double-down"></i> -->
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div id="btns">
+                <button class="btn btn-default btn-lg" id="start">start</button>
+                <button class="btn btn-default btn-lg" id="stop">stop</button>
+                <button class="btn btn-default btn-lg" id="clear">clear</button>
+            </div>
+        </div>
+        <!--!Audio-->
+        <div id="audio-selector">
+            <div id="forest" class="theme">
+                <!--🌲-->Forest
+            </div>
+            <div id="ocean" class="theme">
+                <!--🌊-->Ocean
+            </div>
+            <div id="rainy" class="selected theme">
+                <!--🌧-->Rainy
+            </div>
+            <div id="peace" class="theme">
+                <!--🧘-->Peace
+            </div>
+            <div id="cafe" class="theme">
+                <!--☕-->Café
+            </div>
+        </div>
+        <audio loop autoplay="false"
+            src="https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/rain.mp3">
+
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/flipclock.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

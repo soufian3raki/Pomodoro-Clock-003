@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/flipclock.css">
+    <title>Document</title>
+
+    <script src="./prefixfree.min.js"></script>
+</head>
+
+<body>
+    <div id="pomodoro">
+        <div id="clock" class="row">
+            <div class="timer flip-clock-wrapper">
+                <span class="flip-clock-divider minutes">
+                    <span class="flip-clock-label">Minutes</span>
+                    <span class="flip-clock-dot top"></span>
+                    <span class="flip-clock-dot bottom"></span>
+                </span>
+                
+                <div id="timer">
+                    <div id="title" style="">Ready?</div>
+                    <div id="countdown">
+                        <span id="minutes">30</span>
+                        <span id="seconds">00</span>
+                    </div>
+                </div>
+
+                <ul class="flip ">
+                    <li class="flip-clock-before">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flip-clock-active">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="flip ">
+                    <li class="flip-clock-before">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flip-clock-active">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <span class="flip-clock-divider seconds">
+                    <span class="flip-clock-label">Seconds</span>
+                        <span class="flip-clock-dot top"></span>
+                        <span class="flip-clock-dot bottom"></span>
+                    </span>
+                <ul class="flip ">
+                    <li class="flip-clock-before">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flip-clock-active">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="flip ">
+                    <li class="flip-clock-before">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">9</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="flip-clock-active">
+                        <a href="#">
+                            <div class="up">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                            <div class="down">
+                                <div class="shadow"></div>
+                                <div class="inn">0</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="controls" class="reset">
+                <div id="start"><svg class="svg-inline--fa fa-play fa-w-14" aria-hidden="true" data-prefix="fas"
+                        data-icon="play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z">
+                        </path>
+                    </svg><!-- <i class="fas fa-play"></i> --> Start</div>
+                <div id="pause"><svg class="svg-inline--fa fa-pause fa-w-14" aria-hidden="true" data-prefix="fas"
+                        data-icon="pause" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                        data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M144 479H48c-26.5 0-48-21.5-48-48V79c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zm304-48V79c0-26.5-21.5-48-48-48h-96c-26.5 0-48 21.5-48 48v352c0 26.5 21.5 48 48 48h96c26.5 0 48-21.5 48-48z">
+                        </path>
+                    </svg><!-- <i class="fas fa-pause"></i> --> Pause</div>
+                <div id="reset"><svg class="svg-inline--fa fa-sync-alt fa-w-16" aria-hidden="true" data-prefix="fas"
+                        data-icon="sync-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                        data-fa-i2svg="">
+                        <path fill="currentColor"
+                            d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z">
+                        </path>
+                    </svg><!-- <i class="fas fa-sync-alt"></i> --> Reset</div>
+            </div>
+        </div>
+        <!--todo-->
+        <div id="-clock">
+            <div id="timer">
+                <div id="title" style="">Ready?</div>
+                <div id="countdown">
+                    <span id="minutes">30</span>
+                    <span id="seconds">00</span>
+                </div>
+            </div>
+        </div>
+        <div id="options" style="">
+            <div id="session">
+                <svg id="incrSession" class="svg-inline--fa fa-angle-double-up fa-w-10" aria-hidden="true"
+                    data-prefix="fas" data-icon="angle-double-up" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                        d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z">
+                    </path>
+                </svg><!-- <i id="incrSession" class="fas fa-angle-double-up"></i> -->
+                <span class="option-title">Session</span>
+                <input id="sessionInput" type="number" value="30" max="60" min="5">
+                <svg id="decrSession" class="svg-inline--fa fa-angle-double-down fa-w-10" aria-hidden="true"
+                    data-prefix="fas" data-icon="angle-double-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                        d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z">
+                    </path>
+                </svg><!-- <i id="decrSession" class="fas fa-angle-double-down"></i> -->
+            </div>
+            <div id="break">
+                <svg id="incrBreak" class="svg-inline--fa fa-angle-double-up fa-w-10" aria-hidden="true"
+                    data-prefix="fas" data-icon="angle-double-up" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                        d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z">
+                    </path>
+                </svg><!-- <i id="incrBreak" class="fas fa-angle-double-up"></i> -->
+                <span class="option-title">Break</span>
+                <input id="breakInput" type="number" value="5" max="10" min="1">
+                <svg id="decrBreak" class="svg-inline--fa fa-angle-double-down fa-w-10" aria-hidden="true"
+                    data-prefix="fas" data-icon="angle-double-down" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512" data-fa-i2svg="">
+                    <path fill="currentColor"
+                        d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z">
+                    </path>
+                </svg><!-- <i id="decrBreak" class="fas fa-angle-double-down"></i> -->
+            </div>
+        </div>
+    </div>
+    <div id="audio-selector">
+        <div id="forest" class="theme selected">
+            <!--🌲 -->Forest
+        </div>
+        <div id="ocean" class="theme">
+            <!--🌊 -->Ocean
+        </div>
+        <div id="rainy" class="theme">
+            <!--🌧 -->Rainy
+        </div>
+        <div id="peace" class="theme">
+            <!--🧘 -->Peace
+        </div>
+        <div id="cafe" class="theme">
+            <!--☕ -->Café
+        </div>
+    </div>
+    <audio loop="" autoplay="false"
+        src="https://joeweaver.me/codepenassets/freecodecamp/challenges/build-a-pomodoro-clock/forest.mp3"
+        __idm_id__="18530305">
+
+        <script src="js/jquery.min.js"></script>
+        <script src="./all.js"></script>
+
+        <script src="js/main2.js" id="rendered-js"></script>
+
+    </audio>
+</body>
+
+</html>
